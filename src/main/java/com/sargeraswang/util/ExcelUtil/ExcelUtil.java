@@ -515,7 +515,7 @@ public class ExcelUtil {
                 || (cell.getCellType() == Cell.CELL_TYPE_STRING && StringUtils.isBlank(cell
                 .getStringCellValue()))) {
             if (annoCell != null && annoCell.valid().allowNull() == false) {
-                result = MessageFormat.format("the cell [{0}] can not null", columnName);
+                result = MessageFormat.format("单元格 [{0}] 不能为空", columnName);
             }
             ;
         } else if (cell.getCellType() == Cell.CELL_TYPE_BLANK && annoCell.valid().allowNull()) {

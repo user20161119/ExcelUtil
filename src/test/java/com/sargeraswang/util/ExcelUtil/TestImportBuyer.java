@@ -26,5 +26,8 @@ public class TestImportBuyer {
     for(Buyer m : importExcel){
       System.out.println(m);
     }
+    for(ExcelLog log:logs.getErrorLogList()){
+      System.out.println(log);
+    }
   }
 }

@@ -7,6 +7,16 @@ package com.sargeraswang.util.ExcelUtil;
  * @version 1.0, Created at 2013年9月17日
  */
 public class ExcelLog {
+    @Override
+  public String toString() {
+    return "ExcelLog [rowNum=" + rowNum + ", object=" + object + ", log=" + log + "]";
+  }
+    
+    
+    public String formatError(){
+      return "第[" + rowNum + "]行,错误信息:" + log;
+    }
+
     private Integer rowNum;
     private Object object;
     private String log;
