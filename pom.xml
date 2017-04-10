@@ -14,57 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-
-<repositories>
-
-
-		<repository>
-			<id>aliyun</id>
-			<name>aliyun.com</name>
-			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-			</releases>
-		</repository>
-
-		<repository>
-			<id>mycat</id>
-			<name>mycat.io</name>
-			<url>http://nexus.mycat.io/content/groups/public/</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-			</releases>
-		</repository>
-
-	</repositories>
-
-	<pluginRepositories>
-
-		<pluginRepository>
-			<id>aliyun</id>
-			<name>aliyun.com</name>
-			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-			</releases>
-		</pluginRepository>
-
-		<pluginRepository>
-			<id>mycat</id>
-			<name>mycat.io</name>
-			<url>http://nexus.mycat.io/content/groups/public/</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-			</releases>
-		</pluginRepository>
-
-
-	</pluginRepositories>
-
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
