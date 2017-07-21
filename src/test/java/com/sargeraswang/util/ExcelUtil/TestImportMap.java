@@ -23,7 +23,7 @@ public class TestImportMap {
     InputStream inputStream= new FileInputStream(f);
     
     ExcelLogs logs =new ExcelLogs();
-    Collection<Map> importExcel = ExcelUtil.importExcel(Map.class, inputStream, "yyyy/MM/dd HH:mm:ss", logs , 0);
+    Collection<Map> importExcel = ExcelUtil.importExcel(false,Map.class, inputStream, "yyyy/MM/dd HH:mm:ss", logs , 0);
     
     for(Map m : importExcel){
       System.out.println(m);

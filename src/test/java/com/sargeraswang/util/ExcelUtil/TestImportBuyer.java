@@ -21,7 +21,7 @@ public class TestImportBuyer {
     InputStream inputStream= new FileInputStream(f);
     
     ExcelLogs logs =new ExcelLogs();
-    Collection<Buyer> importExcel = ExcelUtil.importExcel(Buyer.class, inputStream, "yyyy/MM/dd HH:mm:ss", logs , 0);
+    Collection<Buyer> importExcel = ExcelUtil.importExcel(false,Buyer.class, inputStream, "yyyy/MM/dd HH:mm:ss", logs , 0);
     
     for(Buyer m : importExcel){
       System.out.println(m);
