@@ -1,5 +1,6 @@
 package com.sargeraswang.util.ExcelUtil;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -24,11 +25,13 @@ import org.apache.commons.collections.ComparatorUtils;
 import org.apache.commons.collections.comparators.ComparableComparator;
 import org.apache.commons.collections.comparators.ComparatorChain;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.POIXMLDocument;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRichTextString;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.DocumentFactoryHelper;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -418,9 +421,14 @@ public class ExcelUtil {
     }
 
 
-    static Iterator<Row> getSheetRow(boolean isXlsx, InputStream inputStream,
-            int maxRows) {
+    static Iterator<Row> getSheetRow( InputStream inputStream,
+            int maxRows) throws IOException {
         Iterator<Row> rowIterator = null;
+        //https://stackoverflow.com/questions/14522441/determine-ms-excel-file-type-with-apache-poi
+        //https://my.oschina.net/u/1054538/blog/727692
+        BufferedInputStream bis = new BufferedInputStream(inputStream);
+        boolean isXlsx = DocumentFactoryHelper.hasOOXMLHeader(bis);
+        bis.close();
         if (isXlsx) {
             XSSFWorkbook workBook = null;
             try {
@@ -467,13 +475,14 @@ public class ExcelUtil {
      * @param arrayCount
      *            如果vo中有数组类型,那就按照index顺序,把数组应该有几个值写上.
      * @return voList
+     * @throws IOException 
      * @throws KXDHValidException
      * @throws RuntimeException
      */
     @SuppressWarnings("unchecked")
-    public static <T> Collection<T> importExcel(boolean isXlsx, Class<T> clazz, InputStream inputStream,
-            String pattern, ExcelLogs logs, int maxRows, Integer... arrayCount) throws IllegalArgumentException {
-        Iterator<Row> rowIterator = getSheetRow(isXlsx, inputStream, maxRows);
+    public static <T> Collection<T> importExcel( Class<T> clazz, InputStream inputStream,
+            String pattern, ExcelLogs logs, int maxRows, Integer... arrayCount) throws IllegalArgumentException, IOException {
+        Iterator<Row> rowIterator = getSheetRow(inputStream, maxRows);
         List<T> list = new ArrayList<T>();
         try {
             List<ExcelLog> logList = new ArrayList<ExcelLog>();
