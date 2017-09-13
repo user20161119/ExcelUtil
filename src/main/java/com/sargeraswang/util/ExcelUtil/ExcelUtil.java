@@ -428,11 +428,10 @@ public class ExcelUtil {
         //https://my.oschina.net/u/1054538/blog/727692
         BufferedInputStream bis = new BufferedInputStream(inputStream);
         boolean isXlsx = DocumentFactoryHelper.hasOOXMLHeader(bis);
-        bis.close();
         if (isXlsx) {
             XSSFWorkbook workBook = null;
             try {
-                workBook = new XSSFWorkbook(inputStream);
+                workBook = new XSSFWorkbook(bis);
             } catch (IOException e) {
                 LG.error(e.toString(), e);
             }
@@ -445,7 +444,7 @@ public class ExcelUtil {
         } else {
             HSSFWorkbook workBook = null;
             try {
-                workBook = new HSSFWorkbook(inputStream);
+                workBook = new HSSFWorkbook(bis);
             } catch (IOException e) {
                 LG.error(e.toString(), e);
             }
@@ -456,6 +455,7 @@ public class ExcelUtil {
             }
             rowIterator = sheet.rowIterator();
         }
+        bis.close();
         return rowIterator;
     }
 

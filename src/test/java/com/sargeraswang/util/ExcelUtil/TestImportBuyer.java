@@ -18,7 +18,7 @@ import java.util.Collection;
  */
 public class TestImportBuyer {
   public static void main(String[] args) throws IllegalArgumentException, IOException {
-    File f=new File("C://xyy//gitRepo//ExcelUtil//src//test//java//com//sargeraswang//util//ExcelUtil//test.xls");
+    File f=new File("C:\\Users\\louji\\Temp\\buyer.xls");
     InputStream inputStream= new FileInputStream(f);
     
     ExcelLogs logs =new ExcelLogs();
