@@ -14,7 +14,19 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-
+	<distributionManagement>
+		<repository>
+			<id>xiaoyeyun</id>
+			<name>xiaoyeyun nexus release</name>
+			<url>http://nexus.xiaoyeyun.cn/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>  
+            <id>xiaoyeyun</id>  
+            <name>Nexus Snapshots Repository</name>  
+            <uniqueVersion>false</uniqueVersion>  
+            <url>http://nexus.xiaoyeyun.cn/nexus/content/repositories/snapshots/</url>  
+        </snapshotRepository>  
+	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
