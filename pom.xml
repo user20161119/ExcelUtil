@@ -3,7 +3,7 @@
 
 	<groupId>com.sargeraswang.util</groupId>
 	<artifactId>excel-util</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>ExcelUtil</name>
@@ -15,7 +15,7 @@
 	<scm>
 	  <connection>scm:git:git@github.com:user20161119/ExcelUtil.git</connection>
 	  <developerConnection>scm:git:git@github.com:user20161119/ExcelUtil.git</developerConnection>
-	  <tag>excel-util-0.0.2</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<distributionManagement>
