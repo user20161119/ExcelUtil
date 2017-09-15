@@ -4,7 +4,7 @@
 
 	<groupId>com.sargeraswang.util</groupId>
 	<artifactId>excel-util</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>ExcelUtil</name>
@@ -13,6 +13,10 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	<scm>
+	  <connection>scm:git:git@github.com:user20161119/ExcelUtil.git</connection>
+	  <developerConnection>scm:git:git@github.com:user20161119/ExcelUtil.git</developerConnection>
+	</scm>
 
 	<distributionManagement>
 		<repository>
@@ -20,12 +24,12 @@
 			<name>xiaoyeyun nexus release</name>
 			<url>http://nexus.xiaoyeyun.cn/nexus/content/repositories/releases/</url>
 		</repository>
-		<snapshotRepository>  
-            <id>xiaoyeyun</id>  
-            <name>Nexus Snapshots Repository</name>  
-            <uniqueVersion>false</uniqueVersion>  
-            <url>http://nexus.xiaoyeyun.cn/nexus/content/repositories/snapshots/</url>  
-        </snapshotRepository>  
+		<snapshotRepository>
+			<id>xiaoyeyun</id>
+			<name>Nexus Snapshots Repository</name>
+			<uniqueVersion>true</uniqueVersion>
+			<url>http://nexus.xiaoyeyun.cn/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
 	</distributionManagement>
 	<dependencies>
 		<dependency>
@@ -73,17 +77,26 @@
 			<version>1.2.3</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>beta</id>
+		</profile>
+	</profiles>
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
